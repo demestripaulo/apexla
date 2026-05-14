@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apex Athletic | Personal Training · Los Angeles, CA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --lime: #CAFF4E;
+      --lime-dark: #A8D930;
+      --black: #080808;
+      --dark: #0F0F0F;
+      --dark2: #161616;
+      --dark3: #1E1E1E;
+      --gray: #2A2A2A;
+      --muted: #666;
+      --light: #E8E8E8;
+      --white: #FAFAFA;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,8,8,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(202,255,78,0.1);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.08em;
+      color: var(--lime);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex; gap: 36px; list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; color: var(--lime); }
+
+    .nav-cta {
+      background: var(--lime);
+      color: var(--black);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+    }
+
+    .nav-cta:hover {
+      background: var(--lime-dark);
+      transform: translateY(-1px);
+    }
+
+    /* ─── HERO ─────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 120px 48px 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to top, rgba(8,8,8,1) 0%, rgba(8,8,8,0.5) 40%, transparent 70%),
+        linear-gradient(to right, rgba(8,8,8,0.8) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(202,255,78,0.06) 0%, transparent 70%);
+    }
+
+    .hero-grid-overlay {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(202,255,78,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(202,255,78,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow-line {
+      width: 48px; height: 2px;
+      background: var(--lime);
+    }
+
+    .hero-eyebrow-text {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 14vw, 12rem);
+      line-height: 0.88;
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+    }
+
+    .hero-title-line2 {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+    }
+
+    .hero-meta {
+      display: flex; align-items: flex-start; gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 380px;
+      line-height: 1.9;
+    }
+
+    .hero-sub strong { color: var(--light); font-weight: 500; }
+
+    .hero-ctas {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    .btn-lime {
+      background: var(--lime);
+      color: var(--black);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    }
+
+    .btn-lime:hover {
+      background: var(--lime-dark);
+      transform: translateX(4px);
+    }
+
+    .btn-line {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+    }
+
+    .btn-line:hover { border-color: var(--lime); color: var(--lime); }
+
+    /* ─── STATS BANNER ──────────────────────────── */
+    .stats-banner {
+      background: var(--lime);
+      padding: 28px 48px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap; gap: 24px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(8,8,8,0.55);
+      margin-top: 4px;
+    }
+
+    .stat-divider {
+      width: 1px; height: 48px;
+      background: rgba(8,8,8,0.15);
+    }
+
+    /* ─── PROGRAMS ──────────────────────────────── */
+    .programs {
+      padding: 100px 48px;
+      background: var(--dark);
+    }
+
+    .programs-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 64px;
+      flex-wrap: wrap; gap: 24px;
+    }
+
+    .section-kicker {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 12px;
+    }
+
+    .section-h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: rgba(202,255,78,0.05);
+    }
+
+    .program-card {
+      background: var(--dark);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+
+    .program-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0;
+      width: 3px; height: 0;
+      background: var(--lime);
+      transition: height 0.4s ease;
+    }
+
+    .program-card:hover { background: var(--dark2); }
+    .program-card:hover::before { height: 100%; }
+
+    .program-card.featured {
+      background: var(--dark2);
+      border: 1px solid rgba(202,255,78,0.2);
+    }
+
+    .program-card.featured::before { height: 100%; }
+
+    .program-icon {
+      font-size: 2.5rem;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .program-badge {
+      display: inline-block;
+      background: var(--lime);
+      color: var(--black);
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      margin-bottom: 16px;
+    }
+
+    .program-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+
+    .program-price {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+
+    .program-price strong {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    .program-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .program-features {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+
+    .program-features li {
+      font-size: 0.75rem;
+      color: var(--light);
+      opacity: 0.7;
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .program-features li::before {
+      content: '▸';
+      color: var(--lime);
+      font-size: 0.6rem;
+      opacity: 1;
+    }
+
+    /* ─── TRAINER ───────────────────────────────── */
+    .trainer {
+      padding: 100px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      background: var(--black);
+    }
+
+    .trainer-visual {
+      position: relative;
+    }
+
+    .trainer-img-box {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--dark2);
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+    }
+
+    .trainer-img-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(202,255,78,0.08) 0%, transparent 50%),
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 30px,
+          rgba(202,255,78,0.02) 30px,
+          rgba(202,255,78,0.02) 31px
+        );
+    }
+
+    .trainer-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px;
+    }
+
+    .trainer-icon { font-size: 5rem; opacity: 0.3; }
+
+    .trainer-img-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--lime);
+      opacity: 0.5;
+    }
+
+    .trainer-accent {
+      position: absolute;
+      bottom: -16px; right: -16px;
+      width: 120px; height: 120px;
+      background: var(--lime);
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+      opacity: 0.15;
+    }
+
+    .trainer-cert-strip {
+      display: flex; gap: 12px;
+      margin-top: 24px; flex-wrap: wrap;
+    }
+
+    .cert {
+      background: var(--dark2);
+      border: 1px solid rgba(202,255,78,0.15);
+      padding: 8px 16px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+
+    .trainer-text .section-kicker { margin-bottom: 16px; }
+
+    .trainer-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      margin-bottom: 32px;
+    }
+
+    .trainer-body {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 2;
+      margin-bottom: 40px;
+    }
+
+    .trainer-body strong { color: var(--white); font-weight: 500; }
+
+    .specialties {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .specialty {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.78rem;
+      color: var(--light);
+    }
+
+    .specialty-dot {
+      width: 8px; height: 8px;
+      background: var(--lime);
+      flex-shrink: 0;
+    }
+
+    /* ─── BOOKING ───────────────────────────────── */
+    .booking {
+      padding: 100px 48px;
+      background: var(--dark2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking::before {
+      content: 'BOOK';
+      position: absolute;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 25vw;
+      color: rgba(202,255,78,0.03);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .booking-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .booking-text .section-kicker { margin-bottom: 16px; }
+
+    .booking-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      line-height: 0.9;
+      margin-bottom: 24px;
+    }
+
+    .booking-title span { color: var(--lime); }
+
+    .booking-sub {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .booking-actions {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    .booking-option {
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 32px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: var(--white);
+      gap: 24px;
+    }
+
+    .booking-option:hover {
+      border-color: var(--lime);
+      background: var(--gray);
+    }
+
+    .booking-option-info { flex: 1; }
+
+    .booking-option-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .booking-option-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .booking-option-arrow {
+      font-size: 1.2rem;
+      color: var(--lime);
+      transition: transform 0.3s;
+    }
+
+    .booking-option:hover .booking-option-arrow {
+      transform: translateX(6px);
+    }
+
+    .booking-option-icon { font-size: 1.8rem; }
+
+    /* ─── RESULTS / TESTIMONIALS ─────────────────── */
+    .results {
+      padding: 100px 48px;
+      background: var(--black);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+      margin-top: 64px;
+      background: rgba(202,255,78,0.04);
+    }
+
+    .result-card {
+      background: var(--black);
+      padding: 40px;
+      position: relative;
+    }
+
+    .result-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+
+    .result-text {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--light);
+      opacity: 0.85;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+
+    .result-meta {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .result-author {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .result-achievement {
+      background: var(--lime);
+      color: var(--black);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 6px 12px;
+    }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(202,255,78,0.1);
+      padding: 60px 48px 32px;
+    }
+
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 48px;
+      flex-wrap: wrap; gap: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--lime);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-tagline {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .footer-contact {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 2.2;
+      text-align: right;
+    }
+
+    .footer-contact a { color: var(--lime); text-decoration: none; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 24px;
+      display: flex; justify-content: space-between;
+      font-size: 0.65rem;
+      color: var(--muted);
+      opacity: 0.5;
+      flex-wrap: wrap; gap: 12px;
+    }
+
+    /* ─── ANIMATIONS ────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── MOBILE ─────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+
+      .hero { padding: 100px 24px 60px; }
+      .hero-title { font-size: clamp(4.5rem, 18vw, 8rem); }
+      .hero-meta { flex-direction: column; gap: 32px; }
+
+      .stats-banner { padding: 24px 20px; gap: 16px; }
+      .stat-divider { display: none; }
+
+      .programs { padding: 72px 24px; }
+      .programs-grid { grid-template-columns: 1fr; }
+
+      .trainer {
+        grid-template-columns: 1fr;
+        padding: 72px 24px;
+        gap: 48px;
+      }
+
+      .booking { padding: 72px 24px; }
+      .booking-inner { grid-template-columns: 1fr; gap: 48px; }
+
+      .results { padding: 72px 24px; }
+
+      footer { padding: 48px 24px 24px; }
+      .footer-top { flex-direction: column; }
+      .footer-contact { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">APEX</a>
+    <ul class="nav-links">
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#trainer">About</a></li>
+      <li><a href="#booking">Book Session</a></li>
+      <li><a href="#results">Results</a></li>
+    </ul>
+    <a href="#booking" class="nav-cta">Start Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Los Angeles, CA · Elite Personal Training</span>
+      </div>
+      <div class="hero-title">
+        TRAIN<br>
+        <span class="hero-title-line2">HARDER.</span>
+      </div>
+      <div class="hero-meta">
+        <p class="hero-sub">
+          <strong>Your body is capable of more than you think.</strong> We build elite athletes and everyday champions through science-backed programming, relentless accountability, and precision nutrition guidance.
+        </p>
+        <div class="hero-ctas">
+          <a href="#booking" class="btn-lime">Book Free Consultation</a>
+          <a href="#programs" class="btn-line">View Programs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BANNER -->
+  <div class="stats-banner">
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Clients Transformed</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">8</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">4.9★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">97%</div>
+      <div class="stat-label">Goal Achievement Rate</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">NASM Certifications</div>
+    </div>
+  </div>
+
+  <!-- PROGRAMS -->
+  <section id="programs" class="programs">
+    <div class="programs-header reveal">
+      <div>
+        <div class="section-kicker">Training Programs</div>
+        <h2 class="section-h2">Choose Your<br>Path</h2>
+      </div>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <span class="program-icon">🔥</span>
+        <div class="program-name">Foundation</div>
+        <div class="program-price"><strong>$199</strong>/mo</div>
+        <div class="program-desc">Built for beginners or those returning after a break. Safe, structured, and effective fundamentals.</div>
+        <ul class="program-features">
+          <li>4 sessions per month</li>
+          <li>Custom workout plan</li>
+          <li>Nutrition guidance</li>
+          <li>Progress tracking app</li>
+        </ul>
+      </div>
+      <div class="program-card featured reveal">
+        <span class="program-icon">⚡</span>
+        <div class="program-badge">Most Popular</div>
+        <div class="program-name">Performance</div>
+        <div class="program-price"><strong>$349</strong>/mo</div>
+        <div class="program-desc">For intermediate athletes ready to push limits. Periodized programming with full accountability support.</div>
+        <ul class="program-features">
+          <li>8 sessions per month</li>
+          <li>Periodized programming</li>
+          <li>Macro-based meal plan</li>
+          <li>Weekly check-ins</li>
+          <li>24/7 message access</li>
+        </ul>
+      </div>
+      <div class="program-card reveal">
+        <span class="program-icon">🏆</span>
+        <div class="program-name">Elite</div>
+        <div class="program-price"><strong>$599</strong>/mo</div>
+        <div class="program-desc">Unlimited dedication. Full-service programming for advanced athletes and competition prep.</div>
+        <ul class="program-features">
+          <li>Unlimited sessions</li>
+          <li>Fully custom programming</li>
+          <li>Daily nutrition coaching</li>
+          <li>Recovery & mobility plans</li>
+          <li>Priority scheduling</li>
+          <li>Competition prep support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINER -->
+  <section id="trainer" class="trainer">
+    <div class="trainer-visual reveal">
+      <div class="trainer-img-box">
+        <div class="trainer-placeholder">
+          <div class="trainer-icon">💪</div>
+          <div class="trainer-img-label">Your Coach</div>
+        </div>
+      </div>
+      <div class="trainer-accent"></div>
+      <div class="trainer-cert-strip">
+        <span class="cert">NASM-CPT</span>
+        <span class="cert">NASM-CNC</span>
+        <span class="cert">CSCS</span>
+        <span class="cert">FMS Level II</span>
+      </div>
+    </div>
+    <div class="trainer-text reveal">
+      <div class="section-kicker">Your Coach</div>
+      <div class="trainer-title">Marcus<br>Delgado</div>
+      <p class="trainer-body">
+        Marcus has spent 8 years in the trenches of elite performance training in Los Angeles — working with <strong>professional athletes, entertainment industry executives, and everyday people</strong> who refuse to be average.<br><br>
+        His approach is simple: <strong>science over hype, consistency over intensity, and results over excuses</strong>. Every client gets a plan built specifically for their body, their schedule, and their goals.
+      </p>
+      <div class="specialties">
+        <div class="specialty"><div class="specialty-dot"></div>Strength & Conditioning</div>
+        <div class="specialty"><div class="specialty-dot"></div>Fat Loss Programming</div>
+        <div class="specialty"><div class="specialty-dot"></div>Athletic Performance</div>
+        <div class="specialty"><div class="specialty-dot"></div>Body Recomposition</div>
+        <div class="specialty"><div class="specialty-dot"></div>Nutrition Coaching</div>
+        <div class="specialty"><div class="specialty-dot"></div>Competition Prep</div>
+      </div>
+      <a href="#booking" class="btn-lime">Train with Marcus</a>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="booking">
+    <div class="booking-inner">
+      <div class="booking-text reveal">
+        <div class="section-kicker">Let's Get Started</div>
+        <div class="booking-title">
+          Ready to<br>
+          <span>Level Up?</span>
+        </div>
+        <p class="booking-sub">
+          Choose your path below. Book your free strategy call or go ahead and lock in your first session. No fluff — just results.
+        </p>
+      </div>
+      <div class="booking-actions reveal">
+        <!-- Calendly -->
+        <a
+          href="https://calendly.com/apexathleticla"
+          target="_blank"
+          rel="noopener"
+          class="booking-option"
+        >
+          <span class="booking-option-icon">📅</span>
+          <div class="booking-option-info">
+            <div class="booking-option-title">Free Strategy Call</div>
+            <div class="booking-option-sub">30-min session · No commitment · Via Calendly</div>
+          </div>
+          <span class="booking-option-arrow">→</span>
+        </a>
+        <!-- PayPal -->
+        <a
+          href="https://www.paypal.com/paypalme/apexathleticla"
+          target="_blank"
+          rel="noopener"
+          class="booking-option"
+        >
+          <span class="booking-option-icon">💳</span>
+          <div class="booking-option-info">
+            <div class="booking-option-title">Pay & Book Session</div>
+            <div class="booking-option-sub">Secure payment via PayPal · Instant confirmation</div>
+          </div>
+          <span class="booking-option-arrow">→</span>
+        </a>
+        <a href="tel:3105550188" class="booking-option">
+          <span class="booking-option-icon">📞</span>
+          <div class="booking-option-info">
+            <div class="booking-option-title">Call Directly</div>
+            <div class="booking-option-sub">(310) 555-0188 · Mon–Sat, 6am–8pm PT</div>
+          </div>
+          <span class="booking-option-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="results">
+    <div class="programs-header reveal">
+      <div>
+        <div class="section-kicker">Client Results</div>
+        <h2 class="section-h2">Real People.<br>Real Results.</h2>
+      </div>
+    </div>
+    <div class="results-grid">
+      <div class="result-card reveal">
+        <div class="result-tag">★★★★★ Verified Client</div>
+        <div class="result-text">"Marcus completely transformed how I think about training. I've worked with four other trainers in LA — nobody comes close to his level of detail and accountability."</div>
+        <div class="result-meta">
+          <div class="result-author">Tyler B. · West Hollywood</div>
+          <div class="result-achievement">-32 lbs in 4 months</div>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-tag">★★★★★ Verified Client</div>
+        <div class="result-text">"I came in as a complete beginner and left the foundation program deadlifting 225 lbs. The programming is intelligent, the coaching is elite, and the results speak for themselves."</div>
+        <div class="result-meta">
+          <div class="result-author">Priya K. · Silver Lake</div>
+          <div class="result-achievement">+40 lbs on deadlift</div>
+        </div>
+      </div>
+      <div class="result-card reveal">
+        <div class="result-tag">★★★★★ Verified Client</div>
+        <div class="result-text">"I prep for bodybuilding shows and Marcus has been my coach for two seasons. His comp prep protocol is dialed in. Walked on stage at my best condition ever."</div>
+        <div class="result-meta">
+          <div class="result-author">Darius M. · Culver City</div>
+          <div class="result-achievement">NPC Men's Physique Finalist</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">APEX ATHLETIC</div>
+        <div class="footer-tagline">Elite Personal Training · Los Angeles, CA</div>
+      </div>
+      <div class="footer-contact">
+        West Hollywood Training Studio<br>
+        Los Angeles, CA 90046<br>
+        <a href="tel:3105550188">(310) 555-0188</a><br>
+        <a href="mailto:marcus@apexathleticla.com">marcus@apexathleticla.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Apex Athletic · Marcus Delgado Personal Training LLC. All rights reserved.</span>
+      <span>Los Angeles, California</span>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
