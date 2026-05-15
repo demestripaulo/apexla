@@ -1,0 +1,24 @@
+{
+  "name": "apexla",
+  "version": "1.0.0",
+  "description": "Apex Athletic - Personal Training · Los Angeles, CA",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demestripaulo/apexla.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/demestripaulo/apexla/issues"
+  },
+  "homepage": "https://github.com/demestripaulo/apexla#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
